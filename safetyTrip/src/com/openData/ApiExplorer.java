@@ -1,4 +1,4 @@
-package openData;
+package com.openData;
 
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -11,6 +11,8 @@ import javax.xml.parsers.*;
 
 import org.w3c.dom.*;
 import org.xml.sax.*;
+
+import com.dto.OpenDataDTO;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,10 +32,7 @@ public class ApiExplorer {
         	
     		size = oList.size();
     		
-    		for(OpenDataDTO oDTO: oList)
-    			System.out.println(oDTO.getWrtDt());
     		// DB에 데이터 넣기
-    		
     		String lastDt = oList.get(size-1).getWrtDt();
     		String[] dts = lastDt.split("-");
     		

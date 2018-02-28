@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="SafetyMapper">
+	<insert id="insertSafety" parameterType="SafetyDTO">
+		insert into safety(sno, couno, title, content, id, createDate)
+		values(SEQ_SAFETY_sno.nextval, #{couno}, #{title}, #{content}, #{id}, TO_DATE(#{createDate}, 'YYYY-MM-DD'))
+	</insert>
+</mapper>
+
+
+

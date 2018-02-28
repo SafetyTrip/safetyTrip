@@ -1,4 +1,4 @@
-package openData;
+package com.dto;
 
 public class OpenDataDTO {
 	private String content;
