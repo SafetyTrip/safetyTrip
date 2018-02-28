@@ -74,113 +74,118 @@ CREATE TABLE CITY
 
 CREATE TABLE COUNTRY
 (
-	couno number(3,0) NOT NULL,
-	cname varchar2(10) NOT NULL UNIQUE,
-	cename varchar2(20) NOT NULL UNIQUE,
-	PRIMARY KEY (couno)
+	couno number(3,0) constraint country_couno_nn NOT NULL,
+	cname varchar2(10) constraint country_cname_nn NOT NULL constraint country_cname_uk UNIQUE,
+	cename varchar2(20)constraint country_cename_nn NOT NULL constraint country_cename_uk UNIQUE,
+	constraint country_couno_pk PRIMARY KEY (couno)
 );
 
 
 CREATE TABLE HOTEL
 (
-	hno number(7,0) NOT NULL,
-	cityno number(10,0) NOT NULL,
-	hname varchar2(10) NOT NULL,
+	hno number(7,0) constraint hotel_hno_nn NOT NULL,
+	cityno number(10,0) constraint hotel_cityno_nn NOT NULL,
+	hname varchar2(10) constraint hotel_hname_nn NOT NULL,
 	revlike number(10,0),
 	rooms varchar2(100),
-	PRIMARY KEY (hno)
+	constraint hotel_hno_pk PRIMARY KEY (hno)
 );
 
 
 CREATE TABLE QNA
 (
-	qno number(4,0) NOT NULL,
-	uno number(7,0) NOT NULL,
-	hno number(7,0) NOT NULL,
-	question varchar2(1000) NOT NULL,
-	answer varchar2(1000) DEFAULT '',
-	qopen number(1) DEFAULT 1 NOT NULL CHECK(qopen = 0 or qopen = 1),
-	createdate date DEFAULT SYSDATE NOT NULL,
-	PRIMARY KEY (qno)
+	qno number(4,0) constraint qna_qno_nn NOT NULL,
+	uno number(7,0) constraint qna_uno_nn NOT NULL,
+	hno number(7,0) constraint qna_hno_nn NOT NULL,
+	question varchar2(1000) constraint qna_question_nn NOT NULL,
+	answer varchar2(1000),
+	qopen number(1) 
+    DEFAULT 1 
+    constraint qna_qopen_nn NOT NULL 
+    constraint qna_qopen_ck CHECK(qopen = 0 or qopen = 1),
+	createdate date DEFAULT SYSDATE 
+  constraint qna_createdate_nn NOT NULL,
+	constraint qna_qno_pk PRIMARY KEY (qno)
 );
 
 
 CREATE TABLE RESERVATION
 (
-	resno number(8) NOT NULL,
-	uno number(7,0) NOT NULL,
-	hno number(7,0) NOT NULL,
-	room number(4,0) NOT NULL,
-	sdate date NOT NULL,
-	edate date NOT NULL,
-	createdate date DEFAULT SYSDATE NOT NULL,
-	PRIMARY KEY (resno)
+	resno number(8) constraint reservation_resno_nn NOT NULL,
+	uno number(7,0) constraint reservation_uno_nn NOT NULL,
+	hno number(7,0) constraint reservation_hno_nn NOT NULL,
+	room number(4,0) constraint reservation_room_nn NOT NULL,
+	sdate date constraint reservation_sdate_nn NOT NULL,
+	edate date constraint reservation_edate_nn NOT NULL,
+	createdate date DEFAULT SYSDATE constraint reservation_createdate_nn NOT NULL,
+	constraint reservation_resno_pk PRIMARY KEY (resno)
 );
 
 
 CREATE TABLE REVIEW
 (
-	revno number(7,0) NOT NULL,
-	uno number(7,0) NOT NULL,
-	cityno number(10,0) NOT NULL,
-	title varchar2(20) NOT NULL,
-	content varchar2(3000) NOT NULL,
+	revno number(7,0) constraint review_revno_nn NOT NULL,
+	uno number(7,0) constraint review_uno_nn NOT NULL,
+	cityno number(10,0) constraint review_cityno_nn NOT NULL,
+	title varchar2(20) constraint review_title_nn NOT NULL,
+	content varchar2(3000) constraint review_content_nn NOT NULL,
 	count number(10,0),
 	revlike number(10,0),
-	createdate date DEFAULT SYSDATE NOT NULL,
-	PRIMARY KEY (revno)
+	createdate date DEFAULT SYSDATE constraint review_createdate_nn NOT NULL,
+	constraint review_revno_pk PRIMARY KEY (revno)
 );
 
+select * from tab;
 
 CREATE TABLE REV_COMMENT
 (
-	comno number(10,0) NOT NULL,
-	revno number(7,0) NOT NULL,
-	uno number(7,0) NOT NULL,
+	comno number(10,0) constraint rev_comment_comno_nn NOT NULL,
+	revno number(7,0) constraint rev_comment_revno__nn NOT NULL,
+	uno number(7,0) constraint rev_comment_uno_nn NOT NULL,
 	comcontent varchar2(1000),
-	createdate date DEFAULT SYSDATE NOT NULL,
-	PRIMARY KEY (comno)
+	createdate date DEFAULT SYSDATE constraint rev_comment_createdate_nn NOT NULL,
+	constraint rev_comment_comno_pk PRIMARY KEY (comno)
 );
 
 
 CREATE TABLE REV_HOTEL
 (
-	rhno number(10,0) NOT NULL,
-	revno number(7,0) NOT NULL,
-	hno number(7,0) NOT NULL,
-	PRIMARY KEY (rhno)
+	rhno number(10,0) constraint rev_hotel_rhno_nn NOT NULL,
+	revno number(7,0) constraint rev_hotel_revno_nn NOT NULL,
+	hno number(7,0) constraint rev_hotel_hno_nn NOT NULL,
+	constraint rev_hotel_rhno_pk PRIMARY KEY (rhno)
 );
 
 
 CREATE TABLE SAFETY
 (
-	sno number(3,0) NOT NULL,
-	couno number(3,0) NOT NULL,
-	title varchar2(20) NOT NULL,
-	content varchar2(3000) NOT NULL,
-	id varchar2(20) NOT NULL UNIQUE,
-	createdate date DEFAULT SYSDATE NOT NULL,
-	PRIMARY KEY (sno)
+	sno number(3,0) constraint safety_sno_nn NOT NULL,
+	couno number(3,0) constraint safety_couno_nn NOT NULL,
+	title varchar2(20) constraint safety_title_nn NOT NULL,
+	content varchar2(3000) constraint safety_content_nn NOT NULL,
+	id varchar2(20) constraint safety_id_nn NOT NULL constraint safety_id_uk UNIQUE,
+	createdate date DEFAULT SYSDATE constraint safety_createdate_nn NOT NULL,
+	constraint safety_sno_pk PRIMARY KEY (sno)
 );
 
 
 CREATE TABLE USERS
 (
-	uno number(7,0) NOT NULL,
-	userid varchar2(10) NOT NULL UNIQUE,
-	passwd varchar2(10) NOT NULL,
-	email varchar2(20) NOT NULL UNIQUE,
-	uname varchar2(10) NOT NULL UNIQUE,
-	name varchar2(10) NOT NULL,
-	passport number(10,0) NOT NULL,
-	sex nchar NOT NULL CHECK(sex = 'M' or sex = 'F'),
-	birth date NOT NULL,
+	uno number(7,0) constraint users_uno_nn NOT NULL,
+	userid varchar2(10)  constraint users_userid_nn NOT NULL constraint users_userid_uk UNIQUE,
+	passwd varchar2(10) constraint users_passwd_nn NOT NULL,
+	email varchar2(20) constraint users_email_nn NOT NULL constraint users_email_uk UNIQUE,
+	uname varchar2(10) constraint users_uname_nn NOT NULL constraint users_uname_uk UNIQUE,
+	name varchar2(10) constraint users_name_nn NOT NULL,
+	passport number(10,0) constraint users_passport_nn NOT NULL,
+	sex nchar constraint users_sex_nn NOT NULL constraint users_sex_ck CHECK(sex = 'M' or sex = 'F'),
+	birth date constraint users_birth_nn NOT NULL,
 	post number(5,0),
 	address1 varchar2(100),
 	address2 varchar2(100),
-	createdate date DEFAULT SYSDATE NOT NULL,
-	eaccess number(1) DEFAULT 0 NOT NULL CHECK(eaccess = 0 or eaccess = 1),
-	PRIMARY KEY (uno)
+	createdate date DEFAULT SYSDATE constraint users_createdate_nn NOT NULL,
+	eaccess number(1) DEFAULT 0 constraint users_eaccess_nn NOT NULL constraint users_eaccess_ck CHECK(eaccess = 0 or eaccess = 1),
+	constraint users_uno_pk PRIMARY KEY (uno)
 );
 
 
