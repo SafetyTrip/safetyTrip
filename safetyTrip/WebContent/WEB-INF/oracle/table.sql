@@ -60,6 +60,9 @@ CREATE SEQUENCE SEQ_USERS_uno INCREMENT BY 1 START WITH 1;
 
 
 
+
+
+
 /* Create Tables */
 
 CREATE TABLE CITY
@@ -72,11 +75,13 @@ CREATE TABLE CITY
 );
 
 
+
+
 CREATE TABLE COUNTRY
 (
 	couno number(3,0) constraint country_couno_nn NOT NULL,
 	cname varchar2(10) constraint country_cname_nn NOT NULL constraint country_cname_uk UNIQUE,
-	cename varchar2(20)constraint country_cename_nn NOT NULL constraint country_cename_uk UNIQUE,
+	cename varchar2(20) constraint country_cename_nn NOT NULL constraint country_cename_uk UNIQUE,
 	constraint country_couno_pk PRIMARY KEY (couno)
 );
 
