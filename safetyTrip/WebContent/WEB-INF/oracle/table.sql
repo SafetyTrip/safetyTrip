@@ -9,6 +9,7 @@ DROP TRIGGER TRI_RESERVATION_resno;
 DROP TRIGGER TRI_REVIEW_revno;
 DROP TRIGGER TRI_REV_COMMENT_comno;
 DROP TRIGGER TRI_REV_HOTEL_rhno;
+DROP TRIGGER TRI_ROOM_roomno;
 DROP TRIGGER TRI_SAFETY_sno;
 DROP TRIGGER TRI_USERS_uno;
 
@@ -16,9 +17,10 @@ DROP TRIGGER TRI_USERS_uno;
 
 /* Drop Tables */
 
+DROP TABLE REV_HOTEL CASCADE CONSTRAINTS;
 DROP TABLE QNA CASCADE CONSTRAINTS;
 DROP TABLE RESERVATION CASCADE CONSTRAINTS;
-DROP TABLE REV_HOTEL CASCADE CONSTRAINTS;
+DROP TABLE ROOM CASCADE CONSTRAINTS;
 DROP TABLE HOTEL CASCADE CONSTRAINTS;
 DROP TABLE REV_COMMENT CASCADE CONSTRAINTS;
 DROP TABLE REVIEW CASCADE CONSTRAINTS;
@@ -39,6 +41,7 @@ DROP SEQUENCE SEQ_RESERVATION_resno;
 DROP SEQUENCE SEQ_REVIEW_revno;
 DROP SEQUENCE SEQ_REV_COMMENT_comno;
 DROP SEQUENCE SEQ_REV_HOTEL_rhno;
+DROP SEQUENCE SEQ_ROOM_roomno;
 DROP SEQUENCE SEQ_SAFETY_sno;
 DROP SEQUENCE SEQ_USERS_uno;
 
@@ -55,10 +58,9 @@ CREATE SEQUENCE SEQ_RESERVATION_resno INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_REVIEW_revno INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_REV_COMMENT_comno INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_REV_HOTEL_rhno INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_ROOM_roomno INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_SAFETY_sno INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_USERS_uno INCREMENT BY 1 START WITH 1;
-
-
 
 
 
@@ -69,8 +71,8 @@ CREATE TABLE CITY
 (
 	cityno number(10,0) constraint city_cityno_nn NOT NULL,
 	couno number(3,0) constraint city_cunno_nn NOT NULL,
-	cityname varchar2(10) constraint city_cityname_nn NOT NULL,
-	cityename varchar2(20) constraint city_cityename_nn NOT NULL,
+	cityname varchar2(50) constraint city_cityname_nn NOT NULL,
+	cityename varchar2(50) constraint city_cityename_nn NOT NULL,
 	constraint city_cityno_pk PRIMARY KEY (cityno)
 );
 
@@ -80,8 +82,8 @@ CREATE TABLE CITY
 CREATE TABLE COUNTRY
 (
 	couno number(3,0) constraint country_couno_nn NOT NULL,
-	cname varchar2(10) constraint country_cname_nn NOT NULL constraint country_cname_uk UNIQUE,
-	cename varchar2(20) constraint country_cename_nn NOT NULL constraint country_cename_uk UNIQUE,
+	cname varchar2(50) constraint country_cname_nn NOT NULL constraint country_cname_uk UNIQUE,
+	cename varchar2(50) constraint country_cename_nn NOT NULL constraint country_cename_uk UNIQUE,
 	constraint country_couno_pk PRIMARY KEY (couno)
 );
 
@@ -101,7 +103,7 @@ CREATE TABLE QNA
 (
 	qno number(4,0) constraint qna_qno_nn NOT NULL,
 	uno number(7,0) constraint qna_uno_nn NOT NULL,
-	hno number(7,0) constraint qna_hno_nn NOT NULL,
+	roomno number(10,0) constraint qna_roomno_nn NOT NULL,
 	question varchar2(1000) constraint qna_question_nn NOT NULL,
 	answer varchar2(1000),
 	qopen number(1) 
@@ -118,7 +120,7 @@ CREATE TABLE RESERVATION
 (
 	resno number(8) constraint reservation_resno_nn NOT NULL,
 	uno number(7,0) constraint reservation_uno_nn NOT NULL,
-	hno number(7,0) constraint reservation_hno_nn NOT NULL,
+	roomno number(10,0) constraint reservation_roomno_nn NOT NULL,
 	room number(4,0) constraint reservation_room_nn NOT NULL,
 	sdate date constraint reservation_sdate_nn NOT NULL,
 	edate date constraint reservation_edate_nn NOT NULL,
@@ -161,6 +163,13 @@ CREATE TABLE REV_HOTEL
 	constraint rev_hotel_rhno_pk PRIMARY KEY (rhno)
 );
 
+CREATE TABLE ROOM
+(
+	roomno number(10,0) constraint room_roomno_nn NOT NULL,
+	hno number(7,0) constraint room_hno_nn NOT NULL,
+	num number(4,0) constraint room_num_nn NOT NULL,
+	constraint room_roomno_pk PRIMARY KEY (roomno)
+);
 
 CREATE TABLE SAFETY
 (
@@ -198,78 +207,91 @@ CREATE TABLE USERS
 /* Create Foreign Keys */
 
 ALTER TABLE HOTEL
+	constraint hotel_cityno_fk
 	ADD FOREIGN KEY (cityno)
 	REFERENCES CITY (cityno)
 ;
 
 
 ALTER TABLE REVIEW
+	constraint review_cityno_fk
 	ADD FOREIGN KEY (cityno)
 	REFERENCES CITY (cityno)
 ;
 
 
 ALTER TABLE CITY
+	constraint city_couno_fk
 	ADD FOREIGN KEY (couno)
 	REFERENCES COUNTRY (couno)
 ;
 
 
 ALTER TABLE SAFETY
+	constraint safety_couno_fk
 	ADD FOREIGN KEY (couno)
 	REFERENCES COUNTRY (couno)
 ;
 
 
 ALTER TABLE QNA
+	constraint qna_hno_fk
 	ADD FOREIGN KEY (hno)
 	REFERENCES HOTEL (hno)
 ;
 
 
 ALTER TABLE RESERVATION
-	ADD FOREIGN KEY (hno)
-	REFERENCES HOTEL (hno)
+	constraint reservation_roomno_fk
+	ADD FOREIGN KEY (roomno)
+	REFERENCES ROOM (roomno)
 ;
 
 
 ALTER TABLE REV_HOTEL
+	constraint rev_hotel_hno_fk
 	ADD FOREIGN KEY (hno)
 	REFERENCES HOTEL (hno)
 ;
 
 
 ALTER TABLE REV_COMMENT
+	constraint rev_comment_revno_fk
 	ADD FOREIGN KEY (revno)
 	REFERENCES REVIEW (revno)
 ;
 
 
 ALTER TABLE REV_HOTEL
+	constraint rev_hotel_revno_fk
 	ADD FOREIGN KEY (revno)
 	REFERENCES REVIEW (revno)
 ;
 
 
 ALTER TABLE QNA
+	constraint qna_uno_fk
 	ADD FOREIGN KEY (uno)
 	REFERENCES USERS (uno)
 ;
 
 
 ALTER TABLE RESERVATION
+	constraint reservation_uno_fk
 	ADD FOREIGN KEY (uno)
 	REFERENCES USERS (uno)
 ;
 
 
 ALTER TABLE REVIEW
+	constraint review_uno_fk
 	ADD FOREIGN KEY (uno)
 	REFERENCES USERS (uno)
 ;
 
 
 ALTER TABLE REV_COMMENT
+	constraint rev_comment_uno_fk
 	ADD FOREIGN KEY (uno)
 	REFERENCES USERS (uno)
 ;
