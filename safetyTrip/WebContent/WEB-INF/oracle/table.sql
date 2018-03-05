@@ -92,7 +92,7 @@ CREATE TABLE HOTEL
 (
 	hno number(7,0) constraint hotel_hno_nn NOT NULL,
 	cityno number(10,0) constraint hotel_cityno_nn NOT NULL,
-	hname varchar2(10) constraint hotel_hname_nn NOT NULL,
+	hname varchar2(50) constraint hotel_hname_nn NOT NULL,
 	revlike number(10,0),
 	rooms varchar2(100),
 	constraint hotel_hno_pk PRIMARY KEY (hno)
@@ -104,8 +104,8 @@ CREATE TABLE QNA
 	qno number(4,0) constraint qna_qno_nn NOT NULL,
 	uno number(7,0) constraint qna_uno_nn NOT NULL,
 	roomno number(10,0) constraint qna_roomno_nn NOT NULL,
-	question varchar2(1000) constraint qna_question_nn NOT NULL,
-	answer varchar2(1000),
+	question varchar2(3000) constraint qna_question_nn NOT NULL,
+	answer varchar2(3000),
 	qopen number(1) 
     DEFAULT 1 
     constraint qna_qopen_nn NOT NULL 
@@ -186,11 +186,11 @@ CREATE TABLE SAFETY
 CREATE TABLE USERS
 (
 	uno number(7,0) constraint users_uno_nn NOT NULL,
-	userid varchar2(10)  constraint users_userid_nn NOT NULL constraint users_userid_uk UNIQUE,
-	passwd varchar2(10) constraint users_passwd_nn NOT NULL,
-	email varchar2(20) constraint users_email_nn NOT NULL constraint users_email_uk UNIQUE,
-	uname varchar2(10) constraint users_uname_nn NOT NULL constraint users_uname_uk UNIQUE,
-	name varchar2(10) constraint users_name_nn NOT NULL,
+	userid varchar2(20)  constraint users_userid_nn NOT NULL constraint users_userid_uk UNIQUE,
+	passwd varchar2(20) constraint users_passwd_nn NOT NULL,
+	email varchar2(30) constraint users_email_nn NOT NULL constraint users_email_uk UNIQUE,
+	uname varchar2(20) constraint users_uname_nn NOT NULL constraint users_uname_uk UNIQUE,
+	name varchar2(20) constraint users_name_nn NOT NULL,
 	passport number(10,0) constraint users_passport_nn NOT NULL,
 	sex nchar constraint users_sex_nn NOT NULL constraint users_sex_ck CHECK(sex = 'M' or sex = 'F'),
 	birth date constraint users_birth_nn NOT NULL,
