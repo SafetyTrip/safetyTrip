@@ -92,7 +92,7 @@ CREATE TABLE HOTEL
 (
 	hno number(7,0) constraint hotel_hno_nn NOT NULL,
 	cityno number(10,0) constraint hotel_cityno_nn NOT NULL,
-	hname varchar2(10) constraint hotel_hname_nn NOT NULL,
+	hname varchar2(50) constraint hotel_hname_nn NOT NULL,
 	revlike number(10,0),
 	rooms varchar2(100),
 	constraint hotel_hno_pk PRIMARY KEY (hno)
@@ -104,8 +104,8 @@ CREATE TABLE QNA
 	qno number(4,0) constraint qna_qno_nn NOT NULL,
 	uno number(7,0) constraint qna_uno_nn NOT NULL,
 	roomno number(10,0) constraint qna_roomno_nn NOT NULL,
-	question varchar2(1000) constraint qna_question_nn NOT NULL,
-	answer varchar2(1000),
+	question varchar2(3000) constraint qna_question_nn NOT NULL,
+	answer varchar2(3000),
 	qopen number(1) 
     DEFAULT 1 
     constraint qna_qopen_nn NOT NULL 
@@ -134,7 +134,7 @@ CREATE TABLE REVIEW
 	revno number(7,0) constraint review_revno_nn NOT NULL,
 	uno number(7,0) constraint review_uno_nn NOT NULL,
 	cityno number(10,0) constraint review_cityno_nn NOT NULL,
-	title varchar2(20) constraint review_title_nn NOT NULL,
+	title varchar2(1000) constraint review_title_nn NOT NULL,
 	content varchar2(3000) constraint review_content_nn NOT NULL,
 	count number(10,0),
 	revlike number(10,0),
@@ -175,7 +175,7 @@ CREATE TABLE SAFETY
 (
 	sno number(3,0) constraint safety_sno_nn NOT NULL,
 	couno number(3,0) constraint safety_couno_nn NOT NULL,
-	title varchar2(20) constraint safety_title_nn NOT NULL,
+	title varchar2(1000) constraint safety_title_nn NOT NULL,
 	content varchar2(3000) constraint safety_content_nn NOT NULL,
 	id varchar2(20) constraint safety_id_nn NOT NULL constraint safety_id_uk UNIQUE,
 	createdate date DEFAULT SYSDATE constraint safety_createdate_nn NOT NULL,
@@ -186,11 +186,11 @@ CREATE TABLE SAFETY
 CREATE TABLE USERS
 (
 	uno number(7,0) constraint users_uno_nn NOT NULL,
-	userid varchar2(10)  constraint users_userid_nn NOT NULL constraint users_userid_uk UNIQUE,
-	passwd varchar2(10) constraint users_passwd_nn NOT NULL,
-	email varchar2(20) constraint users_email_nn NOT NULL constraint users_email_uk UNIQUE,
-	uname varchar2(10) constraint users_uname_nn NOT NULL constraint users_uname_uk UNIQUE,
-	name varchar2(10) constraint users_name_nn NOT NULL,
+	userid varchar2(20)  constraint users_userid_nn NOT NULL constraint users_userid_uk UNIQUE,
+	passwd varchar2(20) constraint users_passwd_nn NOT NULL,
+	email varchar2(30) constraint users_email_nn NOT NULL constraint users_email_uk UNIQUE,
+	uname varchar2(20) constraint users_uname_nn NOT NULL constraint users_uname_uk UNIQUE,
+	name varchar2(20) constraint users_name_nn NOT NULL,
 	passport number(10,0) constraint users_passport_nn NOT NULL,
 	sex nchar constraint users_sex_nn NOT NULL constraint users_sex_ck CHECK(sex = 'M' or sex = 'F'),
 	birth date constraint users_birth_nn NOT NULL,
@@ -207,92 +207,92 @@ CREATE TABLE USERS
 /* Create Foreign Keys */
 
 ALTER TABLE HOTEL
-	constraint hotel_cityno_fk
-	ADD FOREIGN KEY (cityno)
+	ADD constraint hotel_cityno_fk
+    FOREIGN KEY (cityno)
 	REFERENCES CITY (cityno)
 ;
 
 
 ALTER TABLE REVIEW
-	constraint review_cityno_fk
-	ADD FOREIGN KEY (cityno)
+	ADD constraint review_cityno_fk
+	FOREIGN KEY (cityno)
 	REFERENCES CITY (cityno)
 ;
 
 
 ALTER TABLE CITY
-	constraint city_couno_fk
-	ADD FOREIGN KEY (couno)
+	ADD constraint city_couno_fk
+	FOREIGN KEY (couno)
 	REFERENCES COUNTRY (couno)
 ;
 
 
 ALTER TABLE SAFETY
-	constraint safety_couno_fk
-	ADD FOREIGN KEY (couno)
+	ADD constraint safety_couno_fk
+	FOREIGN KEY (couno)
 	REFERENCES COUNTRY (couno)
 ;
 
 
 ALTER TABLE QNA
-	constraint qna_hno_fk
-	ADD FOREIGN KEY (hno)
+	ADD constraint qna_hno_fk
+    FOREIGN KEY (hno)
 	REFERENCES HOTEL (hno)
 ;
 
 
 ALTER TABLE RESERVATION
-	constraint reservation_roomno_fk
-	ADD FOREIGN KEY (roomno)
+	ADD constraint reservation_roomno_fk
+	FOREIGN KEY (roomno)
 	REFERENCES ROOM (roomno)
 ;
 
 
 ALTER TABLE REV_HOTEL
-	constraint rev_hotel_hno_fk
-	ADD FOREIGN KEY (hno)
+	ADD constraint rev_hotel_hno_fk
+	FOREIGN KEY (hno)
 	REFERENCES HOTEL (hno)
 ;
 
 
 ALTER TABLE REV_COMMENT
-	constraint rev_comment_revno_fk
-	ADD FOREIGN KEY (revno)
+	ADD constraint rev_comment_revno_fk
+	FOREIGN KEY (revno)
 	REFERENCES REVIEW (revno)
 ;
 
 
 ALTER TABLE REV_HOTEL
-	constraint rev_hotel_revno_fk
-	ADD FOREIGN KEY (revno)
+	ADD constraint rev_hotel_revno_fk
+	FOREIGN KEY (revno)
 	REFERENCES REVIEW (revno)
 ;
 
 
 ALTER TABLE QNA
-	constraint qna_uno_fk
-	ADD FOREIGN KEY (uno)
+	ADD constraint qna_uno_fk
+	FOREIGN KEY (uno)
 	REFERENCES USERS (uno)
 ;
 
 
 ALTER TABLE RESERVATION
-	constraint reservation_uno_fk
-	ADD FOREIGN KEY (uno)
+	ADD constraint reservation_uno_fk
+	FOREIGN KEY (uno)
 	REFERENCES USERS (uno)
 ;
 
 
 ALTER TABLE REVIEW
-	constraint review_uno_fk
-	ADD FOREIGN KEY (uno)
+	ADD constraint review_uno_fk
+	FOREIGN KEY (uno)
 	REFERENCES USERS (uno)
 ;
 
 
 ALTER TABLE REV_COMMENT
-	constraint rev_comment_uno_fk
-	ADD FOREIGN KEY (uno)
+	ADD constraint rev_comment_uno_fk
+	FOREIGN KEY (uno)
 	REFERENCES USERS (uno)
 ;
 
