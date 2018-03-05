@@ -6,19 +6,19 @@ public class SafetyDTO {
 	private String title;
 	private String content;
 	private String id;
-	private String WrtDt;
+	private String createDate;
 	
 	public SafetyDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public SafetyDTO(int sno, int couno, String title, String content, String id, String wrtDt) {
+	public SafetyDTO(int sno, int couno, String title, String content, String id, String createDate) {
 		this.sno = sno;
 		this.couno = couno;
 		this.title = title;
 		this.content = content;
 		this.id = id;
-		WrtDt = wrtDt;
+		this.createDate = createDate;
 	}
 	
 	public int getSno() {
@@ -51,10 +51,10 @@ public class SafetyDTO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getWrtDt() {
-		return WrtDt;
+	public String getCreateDate() {
+		return createDate;
 	}
-	public void setWrtDt(String wrtDt) {
-		WrtDt = wrtDt;
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
 	}
 }

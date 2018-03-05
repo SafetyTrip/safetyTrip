@@ -12,7 +12,12 @@ import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import org.xml.sax.*;
 
+import com.dto.CountryDTO;
 import com.dto.OpenDataDTO;
+import com.dto.SafetyDTO;
+import com.exception.MyException;
+import com.service.CountryService;
+import com.service.SafetyService;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,7 +37,41 @@ public class ApiExplorer {
         	
     		size = oList.size();
     		
-    		// DB에 데이터 넣기
+    		for(int i=0; i<size; i++) {
+    			CountryService cService = new CountryService();
+    			String cname = oList.get(i).getCountryName();
+    			
+    			CountryDTO cDTO = null;
+    			try {
+    				cDTO = cService.countrySelectByCname(cname);
+				
+    				if(cDTO == null) {
+		    			cDTO = new CountryDTO();
+		    			cDTO.setCname(oList.get(i).getCountryName());
+		    			cDTO.setCename(oList.get(i).getCountryEnName());
+	    			
+		    			cService.countryInsert(cDTO);
+		    			cDTO = cService.countrySelectByCname(cname);
+	    			}
+    				
+//    				if(cDTO.getCouno() > 0) {
+//    					SafetyService sService = new SafetyService();
+//    					SafetyDTO sDTO = new SafetyDTO();
+//    					
+//    					sDTO.setCouno(cDTO.getCouno());
+//    					sDTO.setTitle(oList.get(i).getTitle());
+//    					sDTO.setContent(oList.get(i).getContent());
+//    					sDTO.setId(oList.get(i).getId());
+//    					sDTO.setCreateDate(oList.get(i).getWrtDt());
+//    					
+//    					sService.safetyInsert(sDTO);
+//    				}
+    			} catch (MyException e) {
+					e.printStackTrace();
+					break;
+				}
+    		}
+    		
     		String lastDt = oList.get(size-1).getWrtDt();
     		String[] dts = lastDt.split("-");
     		

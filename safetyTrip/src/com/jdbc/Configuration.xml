@@ -7,7 +7,7 @@
   <properties resource="com/jdbc/jdbc.properties"></properties>
   
   <typeAliases>
-   <typeAlias type="com.dto.SafetyDTO" alias="SafetyDTO"/>
+   <typeAlias type="com.dto.CountryDTO" alias="CountryDTO"/>
    <typeAlias type="com.dto.SafetyDTO" alias="SafetyDTO"/>
   </typeAliases>
   

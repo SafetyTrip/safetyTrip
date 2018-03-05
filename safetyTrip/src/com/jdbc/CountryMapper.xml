@@ -4,12 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="CountryMapper">
-	<insert id="insertCountry" parameterType="CountryDTO">
+	<insert id="countryInsert" parameterType="CountryDTO">
 		insert into country(couno, cname, cename)
 		values(SEQ_COUNTRY_couno.nextval, #{cname}, #{cename})
 	</insert>
-	<select id="selectCountryByCname" parameterType="string" resultType="int">
-		select couno from country where cname = #{cname}
+	<select id="countrySelectByCname" parameterType="String" resultType="CountryDTO">
+		select couno, cname, cename from country where cname = #{cname}
 	</select>
 </mapper>
 
