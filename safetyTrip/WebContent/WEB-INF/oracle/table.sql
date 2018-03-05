@@ -134,7 +134,7 @@ CREATE TABLE REVIEW
 	revno number(7,0) constraint review_revno_nn NOT NULL,
 	uno number(7,0) constraint review_uno_nn NOT NULL,
 	cityno number(10,0) constraint review_cityno_nn NOT NULL,
-	title varchar2(20) constraint review_title_nn NOT NULL,
+	title varchar2(1000) constraint review_title_nn NOT NULL,
 	content varchar2(3000) constraint review_content_nn NOT NULL,
 	count number(10,0),
 	revlike number(10,0),
@@ -175,7 +175,7 @@ CREATE TABLE SAFETY
 (
 	sno number(3,0) constraint safety_sno_nn NOT NULL,
 	couno number(3,0) constraint safety_couno_nn NOT NULL,
-	title varchar2(20) constraint safety_title_nn NOT NULL,
+	title varchar2(1000) constraint safety_title_nn NOT NULL,
 	content varchar2(3000) constraint safety_content_nn NOT NULL,
 	id varchar2(20) constraint safety_id_nn NOT NULL constraint safety_id_uk UNIQUE,
 	createdate date DEFAULT SYSDATE constraint safety_createdate_nn NOT NULL,
