@@ -207,92 +207,92 @@ CREATE TABLE USERS
 /* Create Foreign Keys */
 
 ALTER TABLE HOTEL
-	constraint hotel_cityno_fk
-	ADD FOREIGN KEY (cityno)
+	ADD constraint hotel_cityno_fk
+    FOREIGN KEY (cityno)
 	REFERENCES CITY (cityno)
 ;
 
 
 ALTER TABLE REVIEW
-	constraint review_cityno_fk
-	ADD FOREIGN KEY (cityno)
+	ADD constraint review_cityno_fk
+	FOREIGN KEY (cityno)
 	REFERENCES CITY (cityno)
 ;
 
 
 ALTER TABLE CITY
-	constraint city_couno_fk
-	ADD FOREIGN KEY (couno)
+	ADD constraint city_couno_fk
+	FOREIGN KEY (couno)
 	REFERENCES COUNTRY (couno)
 ;
 
 
 ALTER TABLE SAFETY
-	constraint safety_couno_fk
-	ADD FOREIGN KEY (couno)
+	ADD constraint safety_couno_fk
+	FOREIGN KEY (couno)
 	REFERENCES COUNTRY (couno)
 ;
 
 
 ALTER TABLE QNA
-	constraint qna_hno_fk
-	ADD FOREIGN KEY (hno)
+	ADD constraint qna_hno_fk
+    FOREIGN KEY (hno)
 	REFERENCES HOTEL (hno)
 ;
 
 
 ALTER TABLE RESERVATION
-	constraint reservation_roomno_fk
-	ADD FOREIGN KEY (roomno)
+	ADD constraint reservation_roomno_fk
+	FOREIGN KEY (roomno)
 	REFERENCES ROOM (roomno)
 ;
 
 
 ALTER TABLE REV_HOTEL
-	constraint rev_hotel_hno_fk
-	ADD FOREIGN KEY (hno)
+	ADD constraint rev_hotel_hno_fk
+	FOREIGN KEY (hno)
 	REFERENCES HOTEL (hno)
 ;
 
 
 ALTER TABLE REV_COMMENT
-	constraint rev_comment_revno_fk
-	ADD FOREIGN KEY (revno)
+	ADD constraint rev_comment_revno_fk
+	FOREIGN KEY (revno)
 	REFERENCES REVIEW (revno)
 ;
 
 
 ALTER TABLE REV_HOTEL
-	constraint rev_hotel_revno_fk
-	ADD FOREIGN KEY (revno)
+	ADD constraint rev_hotel_revno_fk
+	FOREIGN KEY (revno)
 	REFERENCES REVIEW (revno)
 ;
 
 
 ALTER TABLE QNA
-	constraint qna_uno_fk
-	ADD FOREIGN KEY (uno)
+	ADD constraint qna_uno_fk
+	FOREIGN KEY (uno)
 	REFERENCES USERS (uno)
 ;
 
 
 ALTER TABLE RESERVATION
-	constraint reservation_uno_fk
-	ADD FOREIGN KEY (uno)
+	ADD constraint reservation_uno_fk
+	FOREIGN KEY (uno)
 	REFERENCES USERS (uno)
 ;
 
 
 ALTER TABLE REVIEW
-	constraint review_uno_fk
-	ADD FOREIGN KEY (uno)
+	ADD constraint review_uno_fk
+	FOREIGN KEY (uno)
 	REFERENCES USERS (uno)
 ;
 
 
 ALTER TABLE REV_COMMENT
-	constraint rev_comment_uno_fk
-	ADD FOREIGN KEY (uno)
+	ADD constraint rev_comment_uno_fk
+	FOREIGN KEY (uno)
 	REFERENCES USERS (uno)
 ;
 
