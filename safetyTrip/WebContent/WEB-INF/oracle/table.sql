@@ -173,7 +173,7 @@ CREATE TABLE ROOM
 
 CREATE TABLE SAFETY
 (
-	sno number(3,0) constraint safety_sno_nn NOT NULL,
+	sno number(4,0) constraint safety_sno_nn NOT NULL,
 	couno number(3,0) constraint safety_couno_nn NOT NULL,
 	title varchar2(1000) constraint safety_title_nn NOT NULL,
 	content clob constraint safety_content_nn NOT NULL,
