@@ -177,7 +177,7 @@ CREATE TABLE SAFETY
 	couno number(3,0) constraint safety_couno_nn NOT NULL,
 	title varchar2(1000) constraint safety_title_nn NOT NULL,
 	content clob constraint safety_content_nn NOT NULL,
-	id varchar2(20) constraint safety_id_nn NOT NULL constraint safety_id_uk UNIQUE,
+	id varchar2(20) constraint safety_id_nn NOT NULL,
 	createdate date DEFAULT SYSDATE constraint safety_createdate_nn NOT NULL,
 	constraint safety_sno_pk PRIMARY KEY (sno)
 );
@@ -299,7 +299,7 @@ ALTER TABLE REV_COMMENT
 
 
 /* Create Triggers */
-
+/*
 CREATE OR REPLACE TRIGGER TRI_CITY_cityno BEFORE INSERT ON CITY
 FOR EACH ROW
 BEGIN
@@ -399,7 +399,7 @@ BEGIN
 END;
 
 /
-
+*/
 
 
 
