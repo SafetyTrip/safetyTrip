@@ -104,8 +104,8 @@ CREATE TABLE QNA
 	qno number(4,0) constraint qna_qno_nn NOT NULL,
 	uno number(7,0) constraint qna_uno_nn NOT NULL,
 	roomno number(10,0) constraint qna_roomno_nn NOT NULL,
-	question varchar2(4000) constraint qna_question_nn NOT NULL,
-	answer varchar2(4000),
+	question clob constraint qna_question_nn NOT NULL,
+	answer clob,
 	qopen number(1) 
     DEFAULT 1 
     constraint qna_qopen_nn NOT NULL 
@@ -135,7 +135,7 @@ CREATE TABLE REVIEW
 	uno number(7,0) constraint review_uno_nn NOT NULL,
 	cityno number(10,0) constraint review_cityno_nn NOT NULL,
 	title varchar2(1000) constraint review_title_nn NOT NULL,
-	content varchar2(4000) constraint review_content_nn NOT NULL,
+	content clob constraint review_content_nn NOT NULL,
 	count number(10,0),
 	revlike number(10,0),
 	createdate date DEFAULT SYSDATE constraint review_createdate_nn NOT NULL,
@@ -176,7 +176,7 @@ CREATE TABLE SAFETY
 	sno number(3,0) constraint safety_sno_nn NOT NULL,
 	couno number(3,0) constraint safety_couno_nn NOT NULL,
 	title varchar2(1000) constraint safety_title_nn NOT NULL,
-	content varchar2(4000) constraint safety_content_nn NOT NULL,
+	content clob constraint safety_content_nn NOT NULL,
 	id varchar2(20) constraint safety_id_nn NOT NULL constraint safety_id_uk UNIQUE,
 	createdate date DEFAULT SYSDATE constraint safety_createdate_nn NOT NULL,
 	constraint safety_sno_pk PRIMARY KEY (sno)
@@ -191,7 +191,7 @@ CREATE TABLE USERS
 	email varchar2(30) constraint users_email_nn NOT NULL constraint users_email_uk UNIQUE,
 	uname varchar2(20) constraint users_uname_nn NOT NULL constraint users_uname_uk UNIQUE,
 	name varchar2(20) constraint users_name_nn NOT NULL,
-	passport number(10,0) constraint users_passport_nn NOT NULL,
+	passport varchar2(20) constraint users_passport_nn NOT NULL,
 	sex nchar constraint users_sex_nn NOT NULL constraint users_sex_ck CHECK(sex = 'M' or sex = 'F'),
 	birth date constraint users_birth_nn NOT NULL,
 	post number(5,0),
