@@ -44,17 +44,8 @@ public class ApiExplorer {
     			CountryDTO cDTO = null;
     			try {
     				cDTO = cService.countrySelectByCname(cname);
-				
-    				if(cDTO == null) {
-		    			cDTO = new CountryDTO();
-		    			cDTO.setCname(oList.get(i).getCountryName());
-		    			cDTO.setCename(oList.get(i).getCountryEnName());
-	    			
-		    			cService.countryInsert(cDTO);
-		    			cDTO = cService.countrySelectByCname(cname);
-	    			}
     				
-    				if(cDTO.getCouno() > 0) {
+    				if(cDTO != null) {
     					SafetyService sService = new SafetyService();
     					SafetyDTO sDTO = new SafetyDTO();
     					

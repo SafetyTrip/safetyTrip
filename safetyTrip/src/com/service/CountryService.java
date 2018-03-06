@@ -43,4 +43,20 @@ public class CountryService {
 			
 			return dto;
 		}
+		
+		public CountryDTO countrySelectByCename(String cename) throws MyException {
+			SqlSession session = MySqlSessionFactory.getSession();
+			CountryDTO dto = null;
+			
+			try {
+				dto = session.selectOne("CountryMapper.countrySelectByCename", cename);
+			} catch(Exception e) {
+				e.printStackTrace();
+				throw new MyException("국가 검색 에러");
+			} finally {
+				session.close();
+			}
+			
+			return dto;
+		}
 }

@@ -9,7 +9,10 @@
 		values(SEQ_COUNTRY_couno.nextval, #{cname}, #{cename})
 	</insert>
 	<select id="countrySelectByCname" parameterType="String" resultType="CountryDTO">
-		select couno, cname, cename from country where cname = #{cname}
+		select couno, cname, cename, continent from country where cname = #{cname}
+	</select>
+	<select id="countrySelectByCename" parameterType="String" resultType="CountryDTO">
+		select couno, cname, cename, continent from country where cname = #{cename}
 	</select>
 </mapper>
 

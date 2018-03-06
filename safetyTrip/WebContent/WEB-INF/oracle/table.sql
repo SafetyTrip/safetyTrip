@@ -84,6 +84,7 @@ CREATE TABLE COUNTRY
 	couno number(3,0) constraint country_couno_nn NOT NULL,
 	cname varchar2(50) constraint country_cname_nn NOT NULL constraint country_cname_uk UNIQUE,
 	cename varchar2(50) constraint country_cename_nn NOT NULL constraint country_cename_uk UNIQUE,
+	continent varchar2(10) constraint country_continent_nn NOT NULL, 
 	constraint country_couno_pk PRIMARY KEY (couno)
 );
 
@@ -103,7 +104,7 @@ CREATE TABLE QNA
 (
 	qno number(4,0) constraint qna_qno_nn NOT NULL,
 	uno number(7,0) constraint qna_uno_nn NOT NULL,
-	roomno number(10,0) constraint qna_roomno_nn NOT NULL,
+	hno number(10,0) constraint qna_hno_nn NOT NULL,
 	question clob constraint qna_question_nn NOT NULL,
 	answer clob,
 	qopen number(1) 
@@ -402,4 +403,34 @@ END;
 */
 
 
+insert into country(couno, cname, cename, continent)
+values(SEQ_COUNTRY_couno.nextval, '영국', 'United Kingdom', 'Europe');
 
+insert into country(couno, cname, cename, continent)
+values(SEQ_COUNTRY_couno.nextval, '프랑스', 'France', 'Europe');
+
+insert into country(couno, cname, cename, continent)
+values(SEQ_COUNTRY_couno.nextval, '독일', 'Germany', 'Europe');
+
+insert into country(couno, cname, cename, continent)
+values(SEQ_COUNTRY_couno.nextval, '스페인', 'Spain', 'Europe');
+
+insert into country(couno, cname, cename, continent)
+values(SEQ_COUNTRY_couno.nextval, '이탈리아', 'Italy', 'Europe');
+
+insert into country(couno, cname, cename, continent)
+values(SEQ_COUNTRY_couno.nextval, '일본', 'Japan', 'Asia');
+
+insert into country(couno, cname, cename, continent)
+values(SEQ_COUNTRY_couno.nextval, '중국', 'China', 'Asia');
+
+insert into country(couno, cname, cename, continent)
+values(SEQ_COUNTRY_couno.nextval, '대만', 'Taiwan', 'Asia');
+
+insert into country(couno, cname, cename, continent)
+values(SEQ_COUNTRY_couno.nextval, '미국', 'United States of America', 'America');
+
+insert into country(couno, cname, cename, continent)
+values(SEQ_COUNTRY_couno.nextval, '캐나다', 'Canada', 'America');
+
+commit;
