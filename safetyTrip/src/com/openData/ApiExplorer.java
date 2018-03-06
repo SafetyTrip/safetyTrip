@@ -54,18 +54,18 @@ public class ApiExplorer {
 		    			cDTO = cService.countrySelectByCname(cname);
 	    			}
     				
-//    				if(cDTO.getCouno() > 0) {
-//    					SafetyService sService = new SafetyService();
-//    					SafetyDTO sDTO = new SafetyDTO();
-//    					
-//    					sDTO.setCouno(cDTO.getCouno());
-//    					sDTO.setTitle(oList.get(i).getTitle());
-//    					sDTO.setContent(oList.get(i).getContent());
-//    					sDTO.setId(oList.get(i).getId());
-//    					sDTO.setCreateDate(oList.get(i).getWrtDt());
-//    					
-//    					sService.safetyInsert(sDTO);
-//    				}
+    				if(cDTO.getCouno() > 0) {
+    					SafetyService sService = new SafetyService();
+    					SafetyDTO sDTO = new SafetyDTO();
+    					
+    					sDTO.setCouno(cDTO.getCouno());
+    					sDTO.setTitle(oList.get(i).getTitle());
+    					sDTO.setContent(oList.get(i).getContent());
+    					sDTO.setId(oList.get(i).getId());
+    					sDTO.setCreateDate(oList.get(i).getWrtDt());
+    					
+    					sService.safetyInsert(sDTO);
+    				}
     			} catch (MyException e) {
 					e.printStackTrace();
 					break;
