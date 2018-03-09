@@ -18,8 +18,8 @@
   </head>
 
   <body>
-	<jsp:include page="majorMain/mainNav.jsp" flush="true" /><br>
-	<jsp:include page="majorMain/main.jsp" flush="true" /><br>
-	<jsp:include page="majorMain/mainFooter.jsp" flush="true" /><br>
+  	<jsp:include page="majorMain/mainNav.jsp" flush="true" />
+	<jsp:include page="majorMain/main.jsp" flush="true" />
+	<jsp:include page="majorMain/mainFooter.jsp" flush="true" />
   </body>
 </html>
