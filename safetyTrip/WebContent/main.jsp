@@ -13,7 +13,7 @@
     <title>SafetyTrip Main</title>
 
     <!-- CSS -->
-    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
   </head>
 
