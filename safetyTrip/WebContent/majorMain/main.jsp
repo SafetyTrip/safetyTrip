@@ -1,9 +1,8 @@
 
     
 <!-- Main Carousel -->
-     
-	<main role="main">
-      <div id="mCarousel" class="carousel slide" data-ride="carousel">
+	<main role="main" class="border-bottom">
+      <div id="mCarousel" class="carousel slide container" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#mCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#mCarousel" data-slide-to="1"></li>
