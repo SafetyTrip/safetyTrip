@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light 
+<nav class="container navbar navbar-expand-lg navbar-light bg-light 
 			justify-content-between
 			align-items-center p-3 px-md-4 mb-3 
 			border-bottom box-shadow">
