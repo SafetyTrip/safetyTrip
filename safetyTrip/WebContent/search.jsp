@@ -15,11 +15,24 @@
     <!-- CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/search.css" rel="stylesheet">
+    
+	<!-- jQuery file -->
+    <script src="js/jquery-3.3.1.js"></script>
   </head>
 
   <body>
-  	<jsp:include page="majorMain/mainNav.jsp" flush="true" />
-	<jsp:include page="search/search.jsp" flush="true" />
-	<jsp:include page="majorMain/mainFooter.jsp" flush="true" />
+  	<jsp:include page="include/majorMain/mainNav.jsp" flush="true" />
+	<jsp:include page="include/search/search.jsp" flush="true" />
+	<jsp:include page="include/majorMain/mainFooter.jsp" flush="true" />
+	
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="bootstrap/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="bootstrap/assets/js/vendor/popper.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="bootstrap/assets/js/vendor/holder.min.js"></script>
   </body>
 </html>
