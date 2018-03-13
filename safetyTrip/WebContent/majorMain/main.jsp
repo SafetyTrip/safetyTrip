@@ -1,7 +1,7 @@
 
     
 <!-- Main Carousel -->
-	<main role="main" class="border-bottom">
+	<main role="main">
       <div id="mCarousel" class="carousel slide container" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#mCarousel" data-slide-to="0" class="active"></li>
@@ -57,9 +57,8 @@
 		<div class="container">
 	   <div class="row">
 		<div class="col-md-12">
-  		  <form class="input-group mt-12 mt-md-12">
-            <input class="form-control" type="text" 
-            placeholder="Search" aria-label="Search">
+  		  <form class="input-group mt-12 mt-md-12" action="search" method="get">
+            <input class="form-control" name="word" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
       		</div>
