@@ -1,16 +1,25 @@
 package com.openData;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.*;
-import javax.xml.parsers.*;
 
-import org.w3c.dom.*;
-import org.xml.sax.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 import com.dto.CountryDTO;
 import com.dto.OpenDataDTO;
@@ -18,9 +27,6 @@ import com.dto.SafetyDTO;
 import com.exception.MyException;
 import com.service.CountryService;
 import com.service.SafetyService;
-
-import java.io.BufferedReader;
-import java.io.IOException;
 
 public class ApiExplorer {
     public static void main(String[] args) throws IOException {
@@ -43,7 +49,7 @@ public class ApiExplorer {
     			
     			CountryDTO cDTO = null;
     			try {
-    				cDTO = cService.countrySelectByCname(cname);
+    				cDTO = cService.countrySelectOneByCname(cname);
     				
     				if(cDTO != null) {
     					SafetyService sService = new SafetyService();
