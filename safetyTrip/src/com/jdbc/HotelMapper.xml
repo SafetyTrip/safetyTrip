@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="HotelMapper">
+	<insert id="hotelInsert" parameterType="HotelDTO">
+		insert into hotel(hno, cityno, hname, good)
+		values(SEQ_Hotel_hno.nextval, #{cityno}, #{hname}, #{good})
+	</insert>
+	
+	<select id="hotelSelectListBycityno" parameterType="list" resultType="HotelDTO">
+		select hno, cityno, hname, good from hotel
+		where rownum <![CDATA[<=]]> 10 and cityno in
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+</mapper>
+

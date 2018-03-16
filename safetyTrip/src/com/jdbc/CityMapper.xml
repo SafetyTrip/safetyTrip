@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="CityMapper">
+	<select id="citySelectListByCouno" parameterType="list" resultType="CityDTO">
+		select cityno, couno, cityname, cityename from city where rownum <![CDATA[<=]]> 10 and couno = #{couno}
+	</select>
+	<select id="getCitynoListByCouno" parameterType="list" resultType="int">
+		select cityno from city where rownum <![CDATA[<=]]> 10 and couno = #{couno}
+	</select>
+</mapper>
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ReviewMapper">
+	<insert id="reviewInsert" parameterType="ReviewDTO">
+		insert into review(revno, uno, cityno, title, content, viewscount, good, createDate)
+		values(SEQ_REVIEW_revno.nextval, #{uno}, #{cityno}, #{title}, #{content}, #{viewscount},
+			#{good}, TO_DATE(#{createDate}, 'YYYY-MM-DD'))
+	</insert>
+	
+	<select id="reivewSelectListBycityno" parameterType="list" resultType="ReviewDTO">
+		select revno, uno, cityno, title, count, good, createDate from review
+		where rownum <![CDATA[<=]]> 10 and cityno in
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+</mapper>
+

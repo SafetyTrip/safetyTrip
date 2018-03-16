@@ -1,7 +1,6 @@
 package com.controller;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -21,18 +20,14 @@ public class SearchServlet extends HttpServlet {
        
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String word = (String) request.getParameter("word");
-    	HashMap<String, Object> map = new HashMap<>();
-    	map.put("word", word);
-    	map.put("limit", 10);
-    	System.out.println(word);
     	CountryService cService = new CountryService();
     	List<CountryDTO> cList = null;
     	
     	try {
-    		cList = cService.countrySelectListByCname(map);
+    		cList = cService.countrySelectListByCname(word);
 			
 			if(cList == null) {
-				cList = cService.countrySelectListByCename(map);
+				cList = cService.countrySelectListByCename(word);
 			}
 		} catch (MyException e) {
 			e.printStackTrace();
