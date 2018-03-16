@@ -95,7 +95,7 @@ CREATE TABLE HOTEL
 	hno number(7,0) constraint hotel_hno_nn NOT NULL,
 	cityno number(10,0) constraint hotel_cityno_nn NOT NULL,
 	hname varchar2(50) constraint hotel_hname_nn NOT NULL,
-	good number(10,0) DEFAULT 1 constraint hotel_good_nn NOT NULL,
+	good number(10,0) DEFAULT 0 constraint hotel_good_nn NOT NULL,
 	rooms varchar2(100),
 	constraint hotel_hno_pk PRIMARY KEY (hno)
 );
@@ -144,8 +144,8 @@ CREATE TABLE REVIEW
 	cityno number(10,0) constraint review_cityno_nn NOT NULL,
 	title varchar2(1000) constraint review_title_nn NOT NULL,
 	content clob constraint review_content_nn NOT NULL,
-	viewscount number(10,0) DEFAULT 1 constraint review_viewscount_nn NOT NULL,
-	good number(10,0) DEFAULT 1 constraint review_good_nn NOT NULL,
+	viewscount number(10,0) DEFAULT 0 constraint review_viewscount_nn NOT NULL,
+	good number(10,0) DEFAULT 0 constraint review_good_nn NOT NULL,
 	createdate date DEFAULT SYSDATE constraint review_createdate_nn NOT NULL,
 	constraint review_revno_pk PRIMARY KEY (revno)
 );
