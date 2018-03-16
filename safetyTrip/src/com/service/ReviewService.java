@@ -5,44 +5,44 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.dao.MySqlSessionFactory;
-import com.dto.SafetyDTO;
+import com.dto.ReviewDTO;
 import com.exception.MyException;
 
-public class SafetyService {
-	
-	public void safetyInsert(SafetyDTO dto) throws MyException {
+public class ReviewService {
+
+	public void reviewInsert(ReviewDTO dto) throws MyException {
 		SqlSession session = MySqlSessionFactory.getSession();
 		
 		try {
-			int n = session.insert("SafetyMapper.safetyInsert", dto);
+			int n = session.insert("ReviewMapper.reviewInsert", dto);
 			
 			if(n != 1) {
 				session.rollback();
-				throw new MyException("안전정보 추가 에러");
+				throw new MyException("리뷰 추가 에러");
 			} else {
 				session.commit();
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
-			throw new MyException("안전정보 추가 에러");
+			throw new MyException("리뷰 추가 에러");
 		} finally {
 			session.close();
 		}
 	}
 	
-	public List<SafetyDTO> safetySelectListByCouno(String couno) throws MyException {
+	public List<ReviewDTO> reivewSelectListBycityno(List<Integer> list) throws MyException {
 		SqlSession session = MySqlSessionFactory.getSession();
-		List<SafetyDTO> list = null;
+		List<ReviewDTO> rList = null;
 		
 		try {
-			list = session.selectList("SafetyMapper.safetySelectListByCouno", couno);
+			list = session.selectList("ReviewMapper.reivewSelectListBycityno", list);
 		} catch(Exception e) {
 			e.printStackTrace();
-			throw new MyException("안전정보 검색 에러");
+			throw new MyException("리뷰 리스트 검색 에러");
 		} finally {
 			session.close();
 		}
 		
-		return list;
+		return rList;
 	}
 }

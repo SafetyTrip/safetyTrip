@@ -9,6 +9,9 @@
   <typeAliases>
    <typeAlias type="com.dto.CountryDTO" alias="CountryDTO"/>
    <typeAlias type="com.dto.SafetyDTO" alias="SafetyDTO"/>
+   <typeAlias type="com.dto.CityDTO" alias="CityDTO"/>
+   <typeAlias type="com.dto.ReviewDTO" alias="ReviewDTO"/>
+   <typeAlias type="com.dto.HotelDTO" alias="HotelDTO"/>
   </typeAliases>
   
   
@@ -26,6 +29,9 @@
   <mappers>
     <mapper resource="com/jdbc/CountryMapper.xml"/>
     <mapper resource="com/jdbc/SafetyMapper.xml"/>
+    <mapper resource="com/jdbc/CityMapper.xml"/>
+    <mapper resource="com/jdbc/ReviewMapper.xml"/>
+    <mapper resource="com/jdbc/HotelMapper.xml"/>
   </mappers>
 </configuration>
 

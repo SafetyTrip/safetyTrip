@@ -38,13 +38,13 @@
 			%>
 			<div class="col-md-3">
 				<div class="card mb-4 box-shadow country">
-					<img class="card-img-top" src="img/country/<%= cDTO.getCouno()%>.png" />
-					<div><%= cDTO.getCname()%></div>
-					<div><%= cDTO.getCename()%></div>
-					<input type="hidden" name="couno" value="<%= cDTO.getCouno()%>" />
-					<input type="hidden" name="cname" value="<%= cDTO.getCname()%>" />
-					<input type="hidden" name="cename" value="<%= cDTO.getCename()%>" />
-					<input type="hidden" name="continent" value="<%= cDTO.getContinent()%>" />
+					<form action="country" method="get">
+						<img class="card-img-top" src="img/country/<%= cDTO.getCouno()%>.png" />
+						<div><%= cDTO.getCname()%></div>
+						<div><%= cDTO.getCename()%></div>
+						<input type="hidden" name="no" value="<%= cDTO.getCouno()%>" />
+						<input type="hidden" name="name" value="<%= cDTO.getCname()%>" />
+					</form>
 				</div>
 			</div>
 			<%
@@ -57,7 +57,7 @@
 <script>
 	$(document).ready(function() {
 		$('.country').click(function() {
-			console.log($(this).children('img')); 
+			$(this).children("form").submit();
 		});
 	});
 </script>
