@@ -9,19 +9,21 @@
     <link rel="icon" href="img/main/SafetyTrip.png">
 	<!-- Title -->
     <title>SafetyTrip Main</title>
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<!-- 부가적인 테마 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <!-- CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <!-- jQuery file -->
     <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
   </head>
 
   <body>
   	<jsp:include page="include/majorMain/mainNav.jsp" flush="true" />
 	<jsp:include page="include/country.jsp" flush="true" />
 	<jsp:include page="include/majorMain/mainFooter.jsp" flush="true" />
-	
+	<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	</body>
 </html>
