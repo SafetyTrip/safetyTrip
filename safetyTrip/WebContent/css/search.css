@@ -1,4 +1,3 @@
-.country {
-	width: 100px;
-	height: 200px;
+.panel-body > img {
+	height: 120px;
 }

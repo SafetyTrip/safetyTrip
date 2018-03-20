@@ -8,7 +8,7 @@
 
 <div class="container">
 	<div class="row">
-		<p><%= cDTO.getCname()%></p>
+		<h3><%= cDTO.getCname()%></h3>
 	</div>
 	<div class="row">
 		<div class="col-md-6">

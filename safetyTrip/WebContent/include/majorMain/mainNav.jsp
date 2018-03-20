@@ -1,11 +1,22 @@
 
 <!-- Main navbar -->
-    <nav class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-      <a class="navbar-brand" href="main">SafetyTrip</a>
-      <h5 class="my-0 mr-md-auto font-weight-normal"></h5>
-      <div class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#">QnA</a>
-        <a class="p-2 text-dark" href="#">signup</a>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Sign-In</a></li>
+            <li><a href="#">Sign-Up</a></li>
+            <li><a href="#">QnA</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
-      <a class="btn btn-outline-primary" href="#">Sign In</a>
     </nav>

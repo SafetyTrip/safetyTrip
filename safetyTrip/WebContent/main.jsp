@@ -4,32 +4,22 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
     <link rel="icon" href="img/main/SafetyTrip.png">
-
 	<!-- Title -->
     <title>SafetyTrip Main</title>
-
     <!-- CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <!-- jQuery file -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
   </head>
 
   <body>
-	<jsp:include page="include/majorMain/mainNav.jsp" flush="true" /><br>
-	<jsp:include page="include/majorMain/main.jsp" flush="true" /><br>
-	<jsp:include page="include/majorMain/mainFooter.jsp" flush="true" /><br>
-  
-  	<!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="bootstrap/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="bootstrap/assets/js/vendor/popper.min.js"></script>
-    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="bootstrap/assets/js/vendor/holder.min.js"></script>
+	<jsp:include page="include/majorMain/mainNav.jsp" flush="true" />
+	<jsp:include page="include/majorMain/main.jsp" flush="true" />
+	<jsp:include page="include/majorMain/mainFooter.jsp" flush="true" />
   </body>
 </html>
