@@ -38,7 +38,10 @@
 	              			for(int i=0; i<5; i++) {
 	              	%>
 	                <tr class="pointer">
-	                  <td><%= i+1%></td>
+	                  <td>
+	                  	<%= i+1%>
+	                  	<input type="hidden" class="hno" value="<%= hList.get(i).getHno()%>">
+	                  </td>
 	                  <td><%= hList.get(i).getHname()%></td>
 	                  <td><%= hList.get(i).getGood()%></td>
 	                </tr>
@@ -66,8 +69,11 @@
 	              		if(sList != null) {
 	              			for(int i=0; i<5; i++) {
 	              	%>
-	                <tr class="pointer">
-	                  <td><%= i+1%></td>
+	                <tr class="safety-tr pointer">
+	                  <td>
+	                  	<%= i+1%>
+	                  	<input type="hidden" class="sno" value="<%= sList.get(i).getSno()%>">
+	                  </td>
 	                  <td><%= sList.get(i).getTitle()%></td>
 	                  <td><%= sList.get(i).getCreateDate()%></td>
 	                </tr>
@@ -94,7 +100,10 @@
 	              			for(int i=0; i<5; i++) {
 	              	%>
 	                <tr class="pointer">
-	                  <td><%= i+1%></td>
+	                  <td>
+	                  	<%= i+1%>
+	                  	<input type="hidden" class="hno" value="<%= rList.get(i).getRevno()%>">
+	                  </td>
 	                  <td><%= rList.get(i).getTitle()%></td>
 	                  <td><%= rList.get(i).getCreateDate()%></td>
 	                </tr>
