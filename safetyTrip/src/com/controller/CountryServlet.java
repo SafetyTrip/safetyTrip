@@ -48,11 +48,13 @@ public class CountryServlet extends HttpServlet {
     		// 도시 no 정보
     		citynoList = cService.getCitynoListByCouno(couno);
     		
+    		System.out.println(citynoList);
     		if(citynoList.size() > 0) {
 	    		// 호텔 정보
 	    		hList = hService.hotelSelectListBycityno(citynoList);
+	    		
 	    		// review 정보
-	    		rList = rService.reivewSelectListBycityno(citynoList);
+//	    		rList = rService.reivewSelectListBycityno(citynoList);
     		}
 		} catch (MyException e) {
 			e.printStackTrace();

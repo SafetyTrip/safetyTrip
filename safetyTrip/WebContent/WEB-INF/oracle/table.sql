@@ -488,3 +488,7 @@ values (SEQ_CITY_cityno.nextval, 5, '밀라노', 'Millan');
 
 commit;
 
+select * from country;
+select * from city;
+select * from hotel;
+select * from safety;

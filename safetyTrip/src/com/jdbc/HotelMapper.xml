@@ -10,7 +10,7 @@
 	</insert>
 	
 	<select id="hotelSelectListBycityno" parameterType="list" resultType="HotelDTO">
-		select hno, cityno, hname, good from hotel
+		select hno, hname, good, address from hotel
 		where rownum <![CDATA[<=]]> 10 and cityno in
 		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
 			#{item}

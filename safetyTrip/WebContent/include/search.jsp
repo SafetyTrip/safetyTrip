@@ -29,7 +29,7 @@
 							break;
 			%>
 			<div class="col-sm-3">
-	          <div class="panel panel-default">
+	          <div class="panel panel-default pointer">
 	            <div class="panel-heading">
 	              <h3 class="panel-title">
 	              	<%= cDTO.getCname()%> (<%= cDTO.getCename()%>)
@@ -51,11 +51,3 @@
 		</div>
 	</div>
 </div>
-
-<script>
-	$(document).ready(function() {
-		$('.panel').click(function() {
-			$(this).find("form").submit();
-		});
-	});
-</script>
