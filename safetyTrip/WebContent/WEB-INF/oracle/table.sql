@@ -447,3 +447,42 @@ insert into country(couno, cname, cename, continent)
 values(SEQ_COUNTRY_couno.nextval, '캐나다', 'Canada', 'America');
 
 commit;
+
+insert into city(cityno, couno, cityname, cityename)
+values (SEQ_CITY_cityno.nextval, 1, "런던", "London");
+
+insert into city(cityno, couno, cityname, cityename)
+values (SEQ_CITY_cityno.nextval, 1, "맨체스터", "Manchester");
+
+insert into city(cityno, couno, cityname, cityename)
+values (SEQ_CITY_cityno.nextval, 1, "런던", "Liverpool");
+
+insert into city(cityno, couno, cityname, cityename)
+values (SEQ_CITY_cityno.nextval, 2, "파리", "Paris");
+
+insert into city(cityno, couno, cityname, cityename)
+values (SEQ_CITY_cityno.nextval, 2, "리옹", "Lyon");
+
+insert into city(cityno, couno, cityname, cityename)
+values (SEQ_CITY_cityno.nextval, 2, "마르세유", "Marseille");
+
+insert into city(cityno, couno, cityname, cityename)
+values (SEQ_CITY_cityno.nextval, 3, "베를린", "Berlin");
+
+insert into city(cityno, couno, cityname, cityename)
+values (SEQ_CITY_cityno.nextval, 3, "뮌헨", "München");
+
+insert into city(cityno, couno, cityname, cityename)
+values (SEQ_CITY_cityno.nextval, 4, "마드리드", "Madrid");
+
+insert into city(cityno, couno, cityname, cityename)
+values (SEQ_CITY_cityno.nextval, 4, "바르셀로나", "Barcelona");
+
+insert into city(cityno, couno, cityname, cityename)
+values (SEQ_CITY_cityno.nextval, 5, "로마", "Roma");
+
+insert into city(cityno, couno, cityname, cityename)
+values (SEQ_CITY_cityno.nextval, 5, "밀라노", "Millan");
+
+commit;
+
