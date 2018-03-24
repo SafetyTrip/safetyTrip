@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <!-- CSS -->
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/country.css" rel="stylesheet">
     <!-- jQuery file -->
     <script src="js/jquery-3.3.1.min.js"></script>
   </head>
@@ -25,5 +26,6 @@
 	<jsp:include page="include/majorMain/mainFooter.jsp" flush="true" />
 	<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	</body>
+	<script src="js/country.js"></script>
+  </body>
 </html>

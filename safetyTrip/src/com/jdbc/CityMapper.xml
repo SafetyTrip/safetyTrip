@@ -11,7 +11,7 @@
 		select cityno, couno, cityname, cityename from city where rownum <![CDATA[<=]]> 10 and couno = #{couno}
 	</select>
 	<select id="getCitynoListByCouno" parameterType="list" resultType="int">
-		select cityno from city where rownum <![CDATA[<=]]> 10 and couno = #{couno}
+		select cityno from city where couno = #{couno}
 	</select>
 </mapper>
 

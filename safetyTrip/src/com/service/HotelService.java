@@ -32,17 +32,17 @@ public class HotelService {
 	
 	public List<HotelDTO> hotelSelectListBycityno(List<Integer> list) throws MyException {
 		SqlSession session = MySqlSessionFactory.getSession();
-		List<HotelDTO> rList = null;
+		List<HotelDTO> hList = null;
 		
 		try {
-			list = session.selectList("HotelMapper.hotelSelectListBycityno", list);
+			hList = session.selectList("HotelMapper.hotelSelectListBycityno", list);
 		} catch(Exception e) {
 			e.printStackTrace();
-			throw new MyException("리뷰 리스트 검색 에러");
+			throw new MyException("호텔 리스트 검색 에러");
 		} finally {
 			session.close();
 		}
 		
-		return rList;
+		return hList;
 	}
 }
