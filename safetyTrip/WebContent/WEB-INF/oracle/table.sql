@@ -94,9 +94,11 @@ CREATE TABLE HOTEL
 (
 	hno number(7,0) constraint hotel_hno_nn NOT NULL,
 	cityno number(10,0) constraint hotel_cityno_nn NOT NULL,
-	hname varchar2(50) constraint hotel_hname_nn NOT NULL,
-	good number(10,0) DEFAULT 0 constraint hotel_good_nn NOT NULL,
-	rooms varchar2(100),
+	hname varchar2(100) constraint hotel_hname_nn NOT NULL,
+	good number(10,0) DEFAULT 0,
+	address varchar2(100) constraint hotel_address_nn NOT NULL,
+	lat varchar2(20) constraint hotel_lat_nn NOT NULL,
+	lng varchar2(20) constraint hotel_lng_nn NOT NULL,
 	constraint hotel_hno_pk PRIMARY KEY (hno)
 );
 
@@ -447,9 +449,6 @@ insert into country(couno, cname, cename, continent)
 values(SEQ_COUNTRY_couno.nextval, '캐나다', 'Canada', 'America');
 
 commit;
-
-select * from country;
-select * from city;
 
 insert into city(cityno, couno, cityname, cityename)
 values (SEQ_CITY_cityno.nextval, 1, '런던', 'London');

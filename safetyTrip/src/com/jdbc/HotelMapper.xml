@@ -5,8 +5,8 @@
   
 <mapper namespace="HotelMapper">
 	<insert id="hotelInsert" parameterType="HotelDTO">
-		insert into hotel(hno, cityno, hname, good)
-		values(SEQ_Hotel_hno.nextval, #{cityno}, #{hname}, #{good})
+		insert into hotel(hno, cityno, hname, good, address, lat, lng)
+		values(SEQ_Hotel_hno.nextval, #{cityno}, #{hname}, #{good}, #{address}, #{lat}, #{lng})
 	</insert>
 	
 	<select id="hotelSelectListBycityno" parameterType="list" resultType="HotelDTO">

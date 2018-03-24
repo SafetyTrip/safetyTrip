@@ -6,6 +6,9 @@ public class HotelDTO {
 	private int cityno;
 	private String hname;
 	private int good;
+	private String address;
+	private String lat;
+	private String lng;
 	
 	public HotelDTO() {}
 
@@ -39,5 +42,35 @@ public class HotelDTO {
 
 	public void setGood(int good) {
 		this.good = good;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getLat() {
+		return lat;
+	}
+
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+
+	public String getLng() {
+		return lng;
+	}
+
+	public void setLng(String lng) {
+		this.lng = lng;
+	}
+
+	@Override
+	public String toString() {
+		return "HotelDTO [hno=" + hno + ", cityno=" + cityno + ", hname=" + hname + ", good=" + good + ", address="
+				+ address + ", lat=" + lat + ", lng=" + lng + "]";
 	}
 }

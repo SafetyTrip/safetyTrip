@@ -10,12 +10,12 @@ import com.exception.MyException;
 
 public class CityService {
 
-	public List<CityDTO> citySelectListByCouno(String couno) throws MyException {
+	public List<CityDTO> getCitySelectListByCouno(String couno) throws MyException {
 		SqlSession session = MySqlSessionFactory.getSession();
 		List<CityDTO> list = null;
 		
 		try {
-			list = session.selectList("CityMapper.citySelectListByCouno", couno);
+			list = session.selectList("CityMapper.getCitySelectListByCouno", couno);
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new MyException("도시 리스트 검색 에러");
@@ -35,6 +35,22 @@ public class CityService {
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new MyException("도시 no 리스트 검색 에러");
+		} finally {
+			session.close();
+		}
+		
+		return list;
+	}
+	
+	public List<CityDTO> getCityList() throws MyException {
+		SqlSession session = MySqlSessionFactory.getSession();
+		List<CityDTO> list = null;
+		
+		try {
+			list = session.selectList("CityMapper.getCityList");
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new MyException("도시no 검색 에러");
 		} finally {
 			session.close();
 		}
