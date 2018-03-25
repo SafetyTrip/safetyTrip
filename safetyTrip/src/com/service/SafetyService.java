@@ -38,11 +38,27 @@ public class SafetyService {
 			list = session.selectList("SafetyMapper.safetySelectListByCouno", couno);
 		} catch(Exception e) {
 			e.printStackTrace();
-			throw new MyException("안전정보 검색 에러");
+			throw new MyException("안전정보 리스트 검색 에러");
 		} finally {
 			session.close();
 		}
 		
 		return list;
+	}
+	
+	public SafetyDTO safetySelectOneBySno(String sno) throws MyException {
+		SqlSession session = MySqlSessionFactory.getSession();
+		SafetyDTO dto = null;
+		
+		try {
+			dto = session.selectOne("SafetyMapper.safetySelectOneBySno", sno);
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new MyException("안전정보 검색 에러");
+		} finally {
+			session.close();
+		}
+		
+		return dto;
 	}
 }

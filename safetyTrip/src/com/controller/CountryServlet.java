@@ -17,7 +17,6 @@ import com.dto.SafetyDTO;
 import com.exception.MyException;
 import com.service.CityService;
 import com.service.HotelService;
-import com.service.ReviewService;
 import com.service.SafetyService;
 
 @WebServlet("/country")
@@ -35,7 +34,6 @@ public class CountryServlet extends HttpServlet {
     	SafetyService sService = new SafetyService();
     	CityService cService = new CityService();
     	HotelService hService = new HotelService();
-    	ReviewService rService = new ReviewService();
     	
     	List<SafetyDTO> sList = null;
     	List<Integer> citynoList = null;
@@ -52,9 +50,6 @@ public class CountryServlet extends HttpServlet {
     		if(citynoList.size() > 0) {
 	    		// 호텔 정보
 	    		hList = hService.hotelSelectListBycityno(citynoList);
-	    		
-	    		// review 정보
-//	    		rList = rService.reivewSelectListBycityno(citynoList);
     		}
 		} catch (MyException e) {
 			e.printStackTrace();
@@ -63,7 +58,6 @@ public class CountryServlet extends HttpServlet {
     	request.setAttribute("cDTO", cDTO);
     	request.setAttribute("sList", sList);
     	request.setAttribute("hList", hList);
-    	request.setAttribute("rList", rList);
     	
     	RequestDispatcher dis = request.getRequestDispatcher("country.jsp");
 		dis.forward(request, response);

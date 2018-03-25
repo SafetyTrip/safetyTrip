@@ -1,7 +1,6 @@
 package com.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,29 +9,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dto.CountryDTO;
+import com.dto.SafetyDTO;
 import com.exception.MyException;
-import com.service.CountryService;
+import com.service.SafetyService;
 
-@WebServlet("/search")
-public class SearchServlet extends HttpServlet {
+@WebServlet("/safety")
+public class SafetyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String word = (String) request.getParameter("word");
-    	CountryService cService = new CountryService();
-    	List<CountryDTO> cList = null;
+    	String sno = request.getParameter("sno");
+    	SafetyService service = new SafetyService();
+    	SafetyDTO sDTO = null;
     	
     	try {
-    		cList = cService.countrySelectList(word);
+    		sDTO = service.safetySelectOneBySno(sno);
 		} catch (MyException e) {
 			e.printStackTrace();
 		}
     	
-    	request.setAttribute("cList", cList);
-    	RequestDispatcher dis = request.getRequestDispatcher("search.jsp");
+    	request.setAttribute("sDTO", sDTO);
+    	RequestDispatcher dis = request.getRequestDispatcher("safety.jsp");
 		dis.forward(request, response);
-    }
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

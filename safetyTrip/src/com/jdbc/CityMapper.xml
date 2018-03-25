@@ -8,7 +8,7 @@
 		select cityno, cityename from city
 	</select>
 	<select id="getCitySelectListByCouno" parameterType="list" resultType="String">
-		select cityno, couno, cityname, cityename from city where rownum <![CDATA[<=]]> 10 and couno = #{couno}
+		select cityno, couno, cityname, cityename from city where couno = #{couno}
 	</select>
 	<select id="getCitynoListByCouno" parameterType="list" resultType="int">
 		select cityno from city where couno = #{couno}

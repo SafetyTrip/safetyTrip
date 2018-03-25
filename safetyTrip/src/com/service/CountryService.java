@@ -46,31 +46,19 @@ public class CountryService {
 		return dto;
 	}
 	
-	public List<CountryDTO> countrySelectListByCname(String cname) throws MyException {
+	public List<CountryDTO> countrySelectList(String word) throws MyException {
 		SqlSession session = MySqlSessionFactory.getSession();
 		List<CountryDTO> dto = null;
 		
 		try {
-			dto = session.selectList("CountryMapper.countrySelectListByCname", cname);
+			dto = session.selectList("CountryMapper.countrySelectListByCname", word);
+			
+			if(dto == null)
+				dto = session.selectList("CountryMapper.countrySelectListByCename", word);
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new MyException("국가리스트 한글 검색 에러");
-		} finally {
-			session.close();
-		}
-		
-		return dto;
-	}
-	
-	public List<CountryDTO> countrySelectListByCename(String cename) throws MyException {
-		SqlSession session = MySqlSessionFactory.getSession();
-		List<CountryDTO> dto = null;
-		
-		try {
-			dto = session.selectList("CountryMapper.countrySelectListByCename", cename);
-		} catch(Exception e) {
-			e.printStackTrace();
-			throw new MyException("국가리스트 영어 검색 에러");
 		} finally {
 			session.close();
 		}

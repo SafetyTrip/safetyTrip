@@ -35,9 +35,9 @@
 	              <tbody>
 	              	<%
 	              		if(hList != null) {
-	              			for(int i=0; i<5; i++) {
+	              			for(int i=0; i<hList.size(); i++) {
 	              	%>
-	                <tr class="pointer">
+	                <tr class="hotel-tr pointer">
 	                  <td>
 	                  	<%= i+1%>
 	                  	<input type="hidden" class="hno" value="<%= hList.get(i).getHno()%>">
@@ -45,7 +45,7 @@
 	                  <td><%= hList.get(i).getHname()%></td>
 	                  <td><%= hList.get(i).getGood()%></td>
 	                </tr>
-	                <% 
+	                <%
 	              			}
 	              		}
 	                %>
@@ -67,7 +67,7 @@
 	              <tbody>
 	              	<%
 	              		if(sList != null) {
-	              			for(int i=0; i<5; i++) {
+	              			for(int i=0; i<sList.size(); i++) {
 	              	%>
 	                <tr class="safety-tr pointer">
 	                  <td>
@@ -76,36 +76,6 @@
 	                  </td>
 	                  <td><%= sList.get(i).getTitle()%></td>
 	                  <td><%= sList.get(i).getCreateDate()%></td>
-	                </tr>
-	                <% 
-	              			}
-	              		}
-	                %>
-	              </tbody>
-	            </table>
-			</div>
-			<div class="table-responsive">
-				<h4>리뷰 정보</h4>
-	            <table class="table table-striped">
-	              <thead>
-	                <tr>
-	                  <th>#</th>
-	                  <th>Title</th>
-	                  <th>Date</th>
-	                </tr>
-	              </thead>
-	              <tbody>
-	              	<%
-	              		if(rList != null) {
-	              			for(int i=0; i<5; i++) {
-	              	%>
-	                <tr class="pointer">
-	                  <td>
-	                  	<%= i+1%>
-	                  	<input type="hidden" class="hno" value="<%= rList.get(i).getRevno()%>">
-	                  </td>
-	                  <td><%= rList.get(i).getTitle()%></td>
-	                  <td><%= rList.get(i).getCreateDate()%></td>
 	                </tr>
 	                <% 
 	              			}
