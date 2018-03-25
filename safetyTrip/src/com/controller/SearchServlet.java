@@ -19,12 +19,17 @@ public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String continent = (String) request.getParameter("continent");
     	String word = (String) request.getParameter("word");
     	CountryService cService = new CountryService();
     	List<CountryDTO> cList = null;
     	
     	try {
-    		cList = cService.countrySelectList(word);
+    		if(continent == null) {
+    			cList = cService.countrySelectList(word);
+    		} else {
+    			cList = cService.countrySelectListByContinent(continent);
+    		}
 		} catch (MyException e) {
 			e.printStackTrace();
 		}

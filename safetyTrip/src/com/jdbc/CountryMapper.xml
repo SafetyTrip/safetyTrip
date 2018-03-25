@@ -5,12 +5,14 @@
   
 <mapper namespace="CountryMapper">
 	<insert id="countryInsert" parameterType="CountryDTO">
-		insert into country(couno, cname, cename)
-		values(SEQ_COUNTRY_couno.nextval, #{cname}, #{cename})
+		insert into country(couno, cname, cename, continent)
+		values(SEQ_COUNTRY_couno.nextval, #{cname}, #{cename}, #{continent})
 	</insert>
+	
 	<select id="countrySelectOneByCname" parameterType="string" resultType="CountryDTO">
 		select couno, cname, cename, continent from country where cname = #{cname}
 	</select>
+	
 	<select id="countrySelectListByCname" parameterType="string" resultType="CountryDTO">
 		select couno, cname, cename from country
 		where rownum <![CDATA[<=]]> 10
@@ -26,6 +28,10 @@
 			and cename like '%' || #{value} || '%'
 		</if>
 		order by cename desc
+	</select>
+	
+	<select id="countrySelectListByContinent" parameterType="string" resultType="CountryDTO">
+		select couno, cname, cename from country where continent = #{continent}
 	</select>
 </mapper>
 

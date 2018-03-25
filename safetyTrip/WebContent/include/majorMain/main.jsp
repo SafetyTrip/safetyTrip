@@ -14,7 +14,7 @@
          <div class="carousel-caption">
             <h1>Europe.</h1>
             <p>The United Kingdom. France. the Federal Republic of Germany. Spain. The Republic of Italy.</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Travel Europe</a></p>
+            <p><a class="btn btn-lg btn-primary" href="search?continent=Europe" role="button">Travel Europe</a></p>
           </div>
        </div>
        <div class="item">
@@ -22,7 +22,7 @@
          <div class="carousel-caption">
             <h1>Asia.</h1>
             <p>Japan. The People's Republic of China. Taiwan.</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Travel Asia</a></p>
+            <p><a class="btn btn-lg btn-primary" href="search?continent=Asia" role="button">Travel Asia</a></p>
           </div>
        </div>
        <div class="item">
@@ -30,7 +30,7 @@
          <div class="carousel-caption">
             <h1>America.</h1>
             <p>The United States. Canada.</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Travel America</a></p>
+            <p><a class="btn btn-lg btn-primary" href="search?continent=America" role="button">Travel America</a></p>
           </div>
        </div>
      </div>
