@@ -1,6 +1,7 @@
 
 <!-- Main navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <%@page import="com.dto.UsersDTO"%>
+<nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -13,8 +14,21 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse navbar-right">
           <ul class="nav navbar-nav">
-            <li><a href="#">Sign-In</a></li>
-            <li><a href="#">Sign-Up</a></li>
+          <%
+			UsersDTO dto = (UsersDTO)session.getAttribute("login");
+			if(dto == null){
+			
+		  %>
+            <li><a href="LoginUIServlet">Sign-In</a></li>
+            <li><a href="UsersUIServlet">Sign-Up</a></li>
+          <%
+			} else{
+		  %>
+		  	<li><a href="#">MyPage</a></li>
+            <li><a href="LogOutServlet">Sign-Out</a></li>
+		  <%
+			} 
+		  %>
             <li><a href="#">QnA</a></li>
           </ul>
         </div><!--/.nav-collapse -->
