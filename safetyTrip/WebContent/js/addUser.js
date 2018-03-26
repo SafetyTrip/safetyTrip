@@ -60,15 +60,15 @@ $(document).ready(function(){
 	});
 });
  
- $("#passwd_check").keyup(function() {
-		if ($("#passwd").val() != $("#passwd_check").val()) {
-			$("#passwd_check_div").text("암호불일치");
-			console.log("암호불");
-		} else {
-			$("#passwd_check_div").text("암호 일치");
-			console.log("암호  일치");
-		}
-	});
+$("#passwd_check").keyup(function() {
+	if ($("#passwd").val() != $("#passwd_check").val()) {
+		$("#passwd_check_div").text("암호불일치");
+		console.log("암호불");
+	} else {
+		$("#passwd_check_div").text("암호 일치");
+		console.log("암호  일치");
+	}
+});
  
  
  function checkAjax(sendType, sendData) {
