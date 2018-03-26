@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="QnAMapper">
+	
+	<!-- QnA IMG 불러오기 -->
+	<select id="qnaimgList" resultType="QnAImgDTO">
+	   select qino, qno
+	   from qna_img
+	</select>
+
+	<!-- QnA List 불러오기 -->
+	<select id="qnaList" resultType="QnADTO">
+	   select qno, uno, hno,
+	   question, qopen,
+	   to_char(createdate,'YYYY/MM/DD') createdate
+	   from qna
+	   order by num desc
+	</select>
+
+
+
+</mapper>
+
+
+
