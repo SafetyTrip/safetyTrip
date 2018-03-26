@@ -19,8 +19,8 @@
 			if(dto == null){
 			
 		  %>
-            <li><a href="LoginUIServlet">Sign-In</a></li>
-            <li><a href="UsersUIServlet">Sign-Up</a></li>
+            <li><a href="login">Sign-In</a></li>
+            <li><a href="signup">Sign-Up</a></li>
           <%
 			} else{
 		  %>

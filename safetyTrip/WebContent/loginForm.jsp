@@ -26,5 +26,7 @@
     <jsp:include page="include/majorMain/mainNav.jsp" flush="true" /><br>
 	<jsp:include page="include/users/loginForm.jsp" flush="true" />
 	<jsp:include page="include/majorMain/mainFooter.jsp" flush="true" /><br>
+	
+	<script src ="js/login.js"></script>
 </body>
 </html>

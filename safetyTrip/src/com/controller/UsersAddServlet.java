@@ -2,7 +2,6 @@ package com.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,9 +14,7 @@ import com.dto.UsersDTO;
 import com.exception.MyException;
 import com.service.UsersService;
 
-import oracle.sql.DATE;
-
-@WebServlet("/UsersAddServlet")
+@WebServlet("/usersAdd")
 public class UsersAddServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userid = request.getParameter("userid");
@@ -75,7 +72,7 @@ public class UsersAddServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.print(mesg);
 		
-		RequestDispatcher dis = request.getRequestDispatcher("Main.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("main");
 		dis.forward(request, response);
 		
 	

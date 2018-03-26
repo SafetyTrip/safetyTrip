@@ -38,10 +38,10 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("login",dto);
 				System.out.println("성공1111");
-				nextPage = "Main.jsp";
+				nextPage = "main";
 			} else {
 				System.out.println("에러222");
-				nextPage = "LoginUIServlet";
+				nextPage = "login";
 			}
 
 		} catch (MyException e) {

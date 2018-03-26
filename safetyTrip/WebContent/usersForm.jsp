@@ -26,6 +26,9 @@
 	<jsp:include page ="include/majorMain/mainNav.jsp" flush ="true" />
 	<jsp:include page ="include/users/usersForm.jsp" flush ="true" />
 	<jsp:include page="include/majorMain/mainFooter.jsp" flush="true" /><br>
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+	<script src ="js/daum-api.js"></script>
+	<script src ="js/addUser.js"></script>
   </body>
   
 </html>
