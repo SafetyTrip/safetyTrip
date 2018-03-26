@@ -61,7 +61,7 @@ $(document).ready(function(){
 });
  
  $("#passwd_check").keyup(function() {
-		if ($("#users_passwd").val() != $("#passwd_check").val()) {
+		if ($("#passwd").val() != $("#passwd_check").val()) {
 			$("#passwd_check_div").text("암호불일치");
 			console.log("암호불");
 		} else {
