@@ -195,7 +195,7 @@ CREATE TABLE USERS
 	passport varchar2(20) constraint users_passport_nn NOT NULL,
 	sex nchar constraint users_sex_nn NOT NULL constraint users_sex_ck CHECK(sex = 'M' or sex = 'F'),
 	birth date constraint users_birth_nn NOT NULL,
-	post number(5,0) constraint users_post_nn NOT NULL,
+	post varchar2(5) constraint users_post_nn NOT NULL,
 	address1 varchar2(500) constraint users_address1_nn NOT NULL,
 	address2 varchar2(500) constraint users_address2_nn NOT NULL,
 	createdate date DEFAULT SYSDATE constraint users_createdate_nn NOT NULL,

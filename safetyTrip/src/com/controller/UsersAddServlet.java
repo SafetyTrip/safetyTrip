@@ -52,7 +52,7 @@ public class UsersAddServlet extends HttpServlet {
 		dto.setPassport(passport);
 		dto.setSex(sex);
 		dto.setBirth(birth);
-		dto.setPost(Integer.parseInt(post));
+		dto.setPost(post);
 		dto.setAddress1(address1);
 		dto.setAddress2(address2);		
 		

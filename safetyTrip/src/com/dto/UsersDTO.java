@@ -1,7 +1,5 @@
 package com.dto;
 
-import java.sql.Date;
-
 public class UsersDTO {
 	private int uno;			//번호
 	private String userid;		//아이디
@@ -12,7 +10,7 @@ public class UsersDTO {
 	private String passport;	//여권번호
 	private String sex;			//성별
 	private String birth;			//생일
-	private int post;			//우편번호
+	private String post;			//우편번호
 	private String address1;	//주소1
 	private String address2;	//주소2
 	private String createdate;	//가입날짜
@@ -24,7 +22,7 @@ public class UsersDTO {
 	}
 
 	public UsersDTO(int uno, String userid, String passwd, String email, String uname, String name, String passport,
-			String sex, String birth, int post, String address1, String address2, String createdate, int eaccess) {
+			String sex, String birth, String post, String address1, String address2, String createdate, int eaccess) {
 		super();
 		this.uno = uno;
 		this.userid = userid;
@@ -114,11 +112,11 @@ public class UsersDTO {
 		this.birth = birth;
 	}
 
-	public int getPost() {
+	public String getPost() {
 		return post;
 	}
 
-	public void setPost(int post) {
+	public void setPost(String post) {
 		this.post = post;
 	}
 
