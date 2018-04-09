@@ -50,7 +50,7 @@ Google Map API에서 도시를 기준으로 호텔 정보를 가져와 DB에 데
 JAVA 프로그램이므로 따로 돌려줘야한다.
 
 
--com.service
+- com.service
 
 controller와 dao 사이에서 DB 연동 작업을 수행하며,
 
