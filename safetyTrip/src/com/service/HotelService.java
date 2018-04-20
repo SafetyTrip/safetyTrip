@@ -45,4 +45,20 @@ public class HotelService {
 		
 		return hList;
 	}
+	
+	public List<Integer> hotelSelectList() throws MyException {
+		SqlSession session = MySqlSessionFactory.getSession();
+		List<Integer> list = null;
+		
+		try {
+			list = session.selectList("HotelMapper.hotelSelectList");
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new MyException("호텔 전체 hno 검색 에러");
+		} finally {
+			session.close();
+		}
+		
+		return list;
+	}
 }

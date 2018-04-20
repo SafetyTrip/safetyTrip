@@ -12,6 +12,7 @@
 		<typeAlias type="com.dto.SafetyDTO" alias="SafetyDTO" />
 		<typeAlias type="com.dto.CityDTO" alias="CityDTO" />
 		<typeAlias type="com.dto.HotelDTO" alias="HotelDTO" />
+		<typeAlias type="com.dto.RoomDTO" alias="RoomDTO" />
 	</typeAliases>
 
 
@@ -32,6 +33,7 @@
 		<mapper resource="com/jdbc/SafetyMapper.xml" />
 		<mapper resource="com/jdbc/CityMapper.xml" />
 		<mapper resource="com/jdbc/HotelMapper.xml" />
+		<mapper resource="com/jdbc/RoomMapper.xml" />
 	</mappers>
 </configuration>
 

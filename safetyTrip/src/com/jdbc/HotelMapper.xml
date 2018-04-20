@@ -16,5 +16,9 @@
 			#{item}
 		</foreach>
 	</select>
+	
+	<select id="hotelSelectList" resultType="int">
+		select hno from hotel
+	</select>
 </mapper>
 

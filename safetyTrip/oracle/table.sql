@@ -121,7 +121,7 @@ CREATE TABLE RESERVATION
 (
 	resno number(8) constraint reservation_resno_nn NOT NULL,
 	uno number(7,0) constraint reservation_uno_nn NOT NULL,
-	roomno number(10,0) constraint reservation_roomno_nn NOT NULL,
+	hno number(10,0) constraint reservation_hno_nn NOT NULL,
 	room number(4,0) constraint reservation_room_nn NOT NULL,
 	sdate date constraint reservation_sdate_nn NOT NULL,
 	edate date constraint reservation_edate_nn NOT NULL,
@@ -243,9 +243,9 @@ ALTER TABLE QNA
 
 
 ALTER TABLE RESERVATION
-	ADD constraint reservation_roomno_fk
-	FOREIGN KEY (roomno)
-	REFERENCES ROOM (roomno)
+	ADD constraint reservation_hno_fk
+	FOREIGN KEY (hno)
+	REFERENCES Hotel (hno)
 ;
 
 
@@ -514,3 +514,4 @@ select * from country;
 select * from city;
 select * from hotel;
 select * from safety;
+select * from room;
